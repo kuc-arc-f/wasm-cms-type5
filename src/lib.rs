@@ -47,9 +47,9 @@ pub fn wasm_post_row(id_name: &str, json: &str) -> Result<(), JsValue>{
         <a href='#/show/{}'>
             <h3 class='ml-10'>{}</h3>
         </a>
-        <div>
+        <div class='div_post_date_wrap'>
             <p class='mb-0'>
-                <span class='mr-2 time_icon_wrap'><i class='far fa-calendar'></i>
+                <span class='mr-2 time_icon_wrap'><i class='far fa-calendar'></i></span>
                 {} ,
                 <span>ID :{}</span>
             </p>

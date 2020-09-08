@@ -10,6 +10,20 @@ a:hover {
 .body_wrap .paginate_wrap{
   text-align: center;
 }
+.div_post_date_wrap .time_icon_wrap{
+  font-size: 1.2rem;
+}
+.div_post_date_wrap .folder_icon_wrap{
+  font-size: 1.2rem;
+}
+.footer_box{
+  background-color: #757575; 
+  color:#FFF; 
+  padding : 140px 40px;
+}
+.footer_box a{
+  color: inherit;
+}
 div#div_head {
   padding: 0px;
   color: #fff;
