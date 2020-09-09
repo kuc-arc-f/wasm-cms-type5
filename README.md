@@ -6,7 +6,7 @@
 
  date    : 2020/09/05 
 
- update : 2020/09/08
+ update : 2020/09/09
 
 ***
 
@@ -38,7 +38,7 @@ npm install --save-dev html-webpack-plugin babel-loader @babel/core @babel/prese
 ***
 ### sample
 
-https://wasm-cms-type5-kuc.netlify.app
+https://kuc-arc-f.github.io/cms-wasm-sample-type5/
 
 ***
 ### more
