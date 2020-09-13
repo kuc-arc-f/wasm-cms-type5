@@ -1,12 +1,12 @@
 ﻿# wasm-cms-type5
 
- Version: 0.9.1
+ Version: 0.9.2
 
  Author  : Kouji Nakashima / kuc-arc-f.com
 
  date    : 2020/09/05 
 
- update : 2020/09/09
+ update : 2020/09/13 
 
 ***
 

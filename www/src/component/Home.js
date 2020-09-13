@@ -4,7 +4,7 @@ import $ from  'jquery'
 import LibCommon from '../libs/LibCommon';
 import LibCmsEdit_3 from '../libs/LibCmsEdit_3';
 import LibPaginate from '../libs/LibPaginate';
-//import TopPostsRow from './Layouts/TopPostsRow';
+import LibSystem from '../libs/LibSystem';
 import PagesRow from './Layouts/PagesRow';
 import * as wasm from "wasm-cms";
 
@@ -26,14 +26,16 @@ class Home extends React.Component {
         this.handleClickPagenate = this.handleClickPagenate.bind(this);
     }  
     componentDidMount(){
+        var config = LibSystem.get_config()
+console.log( "ver: "+ config.SYS_VERSION );
         var dt = LibCommon.formatDate( new Date(), "YYYY-MM-DD_hhmmss");
         axios.get('./cms.json?' + dt).then(response => {
             var resData = response.data
-            resData.items = LibCommon.get_reverse_items( resData.items )
+            resData.items = LibCommon.get_wasm_items( resData.items )
+//            resData.items = LibCommon.get_reverse_items( resData.items )
             var items_all = [];
             var pages_display = 0;
             if(resData.file_version != null){
-//console.log(resData.page_items );
                 if(resData.page_items != null){
                     if(resData.page_items.length > 0){
                         pages_display = 1;
@@ -58,14 +60,14 @@ class Home extends React.Component {
                 pagenate_display: pagenate_display, 
             })
 
-// console.log( resData.items )
+console.log( data.items )
         })
         .catch(function (error) {
             console.log(error)
         })
     }
     handleClickCategory(id){
-//        console.log(id)
+//        console.log(this.state.items_all)
         var items = LibCmsEdit_3.get_category_data(this.state.items_all ,id)
         var new_data = this.state.data
         new_data.items = items
@@ -129,11 +131,9 @@ class Home extends React.Component {
     }
     tabRow(){
         if(this.state.data.items instanceof Array){
-            return this.state.data.items.map(function(object, i){
-                var json = JSON.stringify( object );
-//                console.log(object )
-                wasm.wasm_post_row("div_post_wrap", String(json) );                
-            })
+            var json = JSON.stringify( this.state.data.items );
+//                console.log(json )
+            wasm.wasm_task_disp("div_post_wrap", String(json) );
         }
     }
     handleClickPagenate(){

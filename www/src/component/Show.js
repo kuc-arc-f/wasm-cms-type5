@@ -26,9 +26,9 @@ class Show extends React.Component {
             var data = res.data
             var items = LibCommon.convert_items(data.items )
             var item  = LibCmsEdit_3.get_show_item( items, String(id) )
+//console.log( items )
             item.content = marked(item.content)
             this.setState({ data: item })
-// console.log( item )
         })
     }
     get_content(){
